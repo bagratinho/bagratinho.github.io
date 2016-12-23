@@ -1,7 +1,5 @@
 INTRODUCTION TO LOG LIST APP
 ----------------------------
-Created by Bagrat Bagoyan
-For Senior front end developer Position
 
 ENVIRONMENT
 -----------
@@ -210,6 +208,3 @@ ADDITIONAL
 ----------
 
 Production build is available online by following URL https://bagratinho.github.io
-
-Thanks for attention, and for opportunity to so far to this test.
-Seasons greatings!
