@@ -1,0 +1,582 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"ex",
+				"expID"
+			],
+			[
+				"Test",
+				"TestOverview"
+			],
+			[
+				"span",
+				"border-spacing"
+			],
+			[
+				"i",
+				"image-rendering"
+			],
+			[
+				"n",
+				"nowrap"
+			],
+			[
+				"pre",
+				"prepareFnTsOverview"
+			],
+			[
+				"pr",
+				"prepareMetricsOverview"
+			],
+			[
+				"item",
+				"items"
+			],
+			[
+				"c",
+				"closeModal"
+			],
+			[
+				"li",
+				"list-style"
+			],
+			[
+				"getT",
+				"getTask"
+			],
+			[
+				"modal",
+				"modalClass"
+			],
+			[
+				"get",
+				"getTasks"
+			],
+			[
+				"task",
+				"taskList"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 5917,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "home.html",
+			"settings":
+			{
+				"buffer_size": 5211,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/bg.js",
+			"settings":
+			{
+				"buffer_size": 1553,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/css.css",
+			"settings":
+			{
+				"buffer_size": 8008,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "Package Control: insta",
+		"selected_items":
+		[
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/nout.am/Desktop/igarden/css",
+		"/C/Users/nout.am/Desktop/igarden/js"
+	],
+	"file_history":
+	[
+		"/C/Users/nout.am/Desktop/vending/src/js/data/user.js",
+		"/C/Users/nout.am/Desktop/vending/src/js/stores/userStore.js",
+		"/C/Users/nout.am/Desktop/vending/src/js/stores/machineStore.js",
+		"/C/Users/nout.am/Desktop/vending/src/js/actions/actions.js",
+		"/C/Users/nout.am/Desktop/vending/src/js/components/user.jsx",
+		"/C/Users/nout.am/Desktop/vending/src/js/components/machine.jsx",
+		"/C/Users/nout.am/Desktop/vending/src/js/components/item.jsx",
+		"/C/Users/nout.am/Desktop/test-django/mysite/mysite/settings.py",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/views.py",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/static/polls/style.css",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/templates/polls/results.html",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/templates/polls/detail.html",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/templates/polls/index.html",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/urls.py",
+		"/C/Users/nout.am/Desktop/test-django/mysite/mysite/urls.py",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/apps.py",
+		"/C/Users/nout.am/Desktop/test-django/mysite/db.sqlite3",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/models.py",
+		"/C/Users/nout.am/Desktop/test-django/mysite/polls/admin.py",
+		"/C/Users/nout.am/Desktop/log_list_app/webpack.config.js",
+		"/C/Users/nout.am/Desktop/llp/src/js/index.jsx",
+		"/C/Users/nout.am/Desktop/llp/.babelrc",
+		"/C/Users/nout.am/Desktop/llp/webpack.config.js",
+		"/C/Users/nout.am/Desktop/Bagrat Bagoyan - Sr Front End Web Designer/log_list_app/package.json",
+		"/C/Users/nout.am/Desktop/log_list_app/package.json",
+		"/C/Users/nout.am/Desktop/Bagrat Bagoyan - Sr Front End Web Designer/log_list_app/src/js/components/item.jsx",
+		"/C/Users/nout.am/Desktop/Bagrat Bagoyan - Sr Front End Web Designer/log_list_app/src/js/stores/itemListStore.js",
+		"/C/Users/nout.am/Desktop/Bagrat Bagoyan - Sr Front End Web Designer/log_list_app/src/js/stores/expendedItemStore.js",
+		"/C/Users/nout.am/Desktop/Bagrat Bagoyan - Sr Front End Web Designer/log_list_app/src/js/components/itemlist.jsx",
+		"/C/Users/nout.am/Desktop/llp/src/js/components/modal.jsx",
+		"/C/Users/nout.am/Desktop/llp/src/css/css.less",
+		"/C/Users/nout.am/Desktop/llp/README.txt",
+		"/C/Users/nout.am/Desktop/log_list_app/README.txt",
+		"/C/Users/nout.am/Desktop/log_list_app/src/css/css.less",
+		"/C/Users/nout.am/Desktop/log_list_app/src/js/routes.jsx",
+		"/C/Users/nout.am/Desktop/llp/src/js/data/itemList.js",
+		"/C/Users/nout.am/Desktop/llp/src/js/components/itemlist.jsx",
+		"/C/Users/nout.am/Desktop/llp/src/js/stores/structureStore.js",
+		"/C/Users/nout.am/Desktop/llp/src/js/routes.jsx",
+		"/C/Users/nout.am/Desktop/llp/package.json",
+		"/C/Users/nout.am/Desktop/llp/test/test.spec.js",
+		"/C/Users/nout.am/Desktop/secwall/_gulp/webpack.config.js",
+		"/C/Users/nout.am/Desktop/qaq/react-testing-components-enzyme/test/avatar.spec.js",
+		"/C/Users/nout.am/Desktop/Log List App/webpack.config.js",
+		"/C/Users/nout.am/Desktop/Log List App/test/test.spec.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/modal.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/itemlist.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/item.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/main.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/package.json",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/index.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/routes.jsx",
+		"/C/Users/nout.am/Desktop/qaq/react-testing-components-enzyme/package.json",
+		"/C/Users/nout.am/Desktop/qaq/react-testing-components-enzyme/lib/avatar.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/metricsOverview.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/__tests__/test.js",
+		"/C/Users/nout.am/Desktop/Log List App/test/test.js",
+		"/C/Users/nout.am/Desktop/qaq/react-testing-components-enzyme/test/helpers/browser.js",
+		"/C/Users/nout.am/Desktop/qaq/react-testing-components-enzyme/webpack.config.js",
+		"/C/Users/nout.am/Desktop/Log List App/test/helpers/browser.js",
+		"/C/Users/nout.am/Desktop/qaq/react-testing-components-enzyme/.babelrc",
+		"/C/Users/nout.am/Desktop/Log List App/.babelrc",
+		"/C/Users/nout.am/Desktop/Log List App/src/css/css.less",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/buildOverview.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/__tests__/test.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/css/css.css",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/itemDetail.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/itemDeepDetails.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/finalOverview.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/testOverview.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/data/itemList.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/stores/expendedItemStore.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/actions/itemListActions.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/css/fonts.css",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/stores/itemListStore.js",
+		"/C/Users/nout.am/Desktop/secwall/_test/helpers.js",
+		"/C/Users/nout.am/Desktop/secwall/_test/jasmine-setup-env.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/actions/actions.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/stores/structureStore.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/stores/modalStore.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/home.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/build/index.html",
+		"/C/Users/nout.am/Desktop/td1/src/js/components/todolist.jsx",
+		"/C/Users/nout.am/Desktop/td1/src/js/components/modal.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/data/structure.js",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/todolist.jsx",
+		"/C/Users/nout.am/Desktop/Log List App/src/js/components/task.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/components/todolist.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/index.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/routes.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/components/notfound.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/components/main.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/css/css.css",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/components/task.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/components/modal.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/stores/modalStore.js",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/stores/store.js",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/stores/todolistStore.js",
+		"/C/Users/nout.am/.ssh/id_rsa.pub",
+		"/C/Users/nout.am/Desktop/todo/src/js/components/main.jsx",
+		"/C/Users/nout.am/Desktop/todo/src/js/components/home.jsx",
+		"/C/Users/nout.am/Desktop/todo/src/js/components/todolist.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/stores/selectedTaskStore.js",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/actions/actions.js",
+		"/C/Users/nout.am/Desktop/secwall/src/js/metrics/stores/MetricsViewStore.js",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/stores/openModalStore.js",
+		"/C/Users/nout.am/Desktop/react-hello-world — копия/src/js/stores/store.js",
+		"/C/Users/nout.am/Desktop/react-hello-world — копия/src/js/components/main.jsx",
+		"/C/Users/nout.am/Desktop/secwall/src/js/metrics/components/MetricsHeader.jsx",
+		"/C/Users/nout.am/Desktop/secwall/src/js/metrics/views/MetricsView.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/build/index.html",
+		"/C/Users/nout.am/Desktop/react-hello-world/package.json",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/components/home.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/data/data.js",
+		"/C/Users/nout.am/Desktop/react-hello-world — копия/src/js/index.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/components/about.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/data/data.json",
+		"/C/Users/nout.am/Desktop/react-hello-world/src/js/AwesomeComponent.jsx",
+		"/C/Users/nout.am/Desktop/secwall/src/js/metrics/MetricsLayout.jsx",
+		"/C/dev4/app/package.json",
+		"/C/Users/nout.am/Desktop/secwall/package.json",
+		"/C/Users/nout.am/Desktop/secwall/src/js/routes.jsx",
+		"/C/dev2/app/package.json",
+		"/C/dev2/app/public/index.html",
+		"/C/Users/nout.am/Desktop/secwall/src/js/index.jsx",
+		"/C/Users/nout.am/Desktop/react/plain/src/js/index.jsx",
+		"/C/Users/nout.am/Desktop/react/plain/src/js/App.jsx",
+		"/C/Users/nout.am/Desktop/react-hello-world/webpack.config.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Users\\nout.am\\Desktop\\secwall\\src\\js\\metrics"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"search",
+			">\n",
+			"div",
+			"span",
+			"93",
+			"nth-child",
+			"Complete",
+			"button",
+			"mount",
+			"ccc",
+			"#f9ce4f",
+			"200",
+			"gridwidth",
+			"lgblue",
+			"8db580",
+			".item-wrapper{",
+			"ul.heading{",
+			".list-wrapper{",
+			"font-size",
+			"bar-chart",
+			"dcc",
+			"h3",
+			"e4d9ff",
+			"h3",
+			"item",
+			"runn",
+			"runin",
+			"firewall",
+			"build",
+			"ccp",
+			"finalOverview",
+			"Pending",
+			"N/A",
+			"rejected",
+			"status-ind",
+			"rejected",
+			"reje",
+			"label",
+			"status",
+			"cur",
+			"cell",
+			"tolow",
+			"tasklist",
+			"trigger",
+			"key",
+			"');\n",
+			"button",
+			"each",
+			"chain",
+			"listenTo",
+			"reflux"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"(you will receive an email with a temporary password)",
+			"div"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5917,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5812,
+								5822
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1244.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4261,
+								4261
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 832.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/bg.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1553,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								649,
+								649
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "css/css.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7985,
+								7989
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6124.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 229.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
