@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<link rel="apple-touch-icon" sizes="128x128" href="bitcoin-icon.png">
+	<meta name=”apple-mobile-web-app-capable” content=”yes”>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -30,7 +31,7 @@
 		</div>
 	</div>
 <script>
-	
+
 	var coins = [
 		"https://api.coinmarketcap.com/v1/ticker/hush/",
 		"https://api.coinmarketcap.com/v1/ticker/Singulardtv/",
@@ -50,17 +51,17 @@
 				var ch1h = parseFloat(data[0].percent_change_1h);
 				var ch24h = parseFloat(data[0].percent_change_24h);
 				var ch7d = parseFloat(data[0].percent_change_7d);
-				
+
 				var status1 =  ch7d > 40 ? "pos-dinamics1" : ch7d < -40 ? "neg-dinamics1" : "default1";
 				var status2 =  ch24h > 40 ? "pos-dinamics2" : ch24h < -40 ? "neg-dinamics2" : "default2";
 				var status3 =  ch1h > 40 ? "pos-dinamics3" : ch1h < -40 ? "neg-dinamics3" : "default3";
-				
+
 				var ch1h_str = ch1h >= 0 ? `<span class='pos'>${ch1h}%</span>` : `<span class='neg'>${ch1h}%</span>`;
 				var ch24h_str = ch24h >= 0 ? `<span class='pos'>${ch24h}%</span>` : `<span class='neg'>${ch24h}%</span>`;
 				var ch7d_str = ch7d >= 0 ? `<span class='pos'>${ch7d}%</span>` : `<span class='neg'>${ch7d}%</span>`;
-				var item = `<li class="${status1} ${status2} ${status3}"> 
+				var item = `<li class="${status1} ${status2} ${status3}">
 					<div><label>${data[0].name}:</label> <span>$ ${data[0].price_usd}</span></div>
-					<div><label>Price BTC:</label> $ ${data[0].price_btc}</div>					
+					<div><label>Price BTC:</label> $ ${data[0].price_btc}</div>
 					<div><label>Market Cap:</label> $ ${data[0].market_cap_usd}</div>
 					<div><label>Change 1h:</label> ${ch1h_str}<i class="fa fa-arrow-up"></i><i class="fa fa-arrow-down"></i></div>
 					<div><label>Change 24h:</label> ${ch24h_str}<i class="fa fa-arrow-up"></i><i class="fa fa-arrow-down"></i></div>
@@ -72,7 +73,7 @@
 	}
 	update();
 	window.setInterval(update, 30000);
-</script>	
+</script>
 </body>
 </html>
 
