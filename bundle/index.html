@@ -60,6 +60,7 @@
 				var ch7d_str = ch7d >= 0 ? `<span class='pos'>${ch7d}%</span>` : `<span class='neg'>${ch7d}%</span>`;
 				var item = `<li class="${status1} ${status2} ${status3}"> 
 					<div><label>${data[0].name}:</label> <span>$ ${data[0].price_usd}</span></div>
+					<div><label>Price BTC:</label> $ ${data[0].price_btc}</div>					
 					<div><label>Market Cap:</label> $ ${data[0].market_cap_usd}</div>
 					<div><label>Change 1h:</label> ${ch1h_str}<i class="fa fa-arrow-up"></i><i class="fa fa-arrow-down"></i></div>
 					<div><label>Change 24h:</label> ${ch24h_str}<i class="fa fa-arrow-up"></i><i class="fa fa-arrow-down"></i></div>
