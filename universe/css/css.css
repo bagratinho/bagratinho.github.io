@@ -6,8 +6,8 @@ body {
 }
 canvas {
 	display: block;
-	background: #2d2d2d;
+	background: #444;
 }
 html {
 	height: 100%;
-}	
+}
