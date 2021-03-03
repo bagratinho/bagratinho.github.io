@@ -3,43 +3,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="css/kaleidoscope.css">
   <title>y-Hat</title>
 </head>
 <body>
-  <section class="main-auth">
-    <div class="panel-auth">
-      <div class="left">
-        <h1 class="logo">
-          <img src="images/logo1.png" alt="">
-        </h1>
-      </div>
-      <div class="right">
-        <div>
-          <h3>Log in</h3>
-          <form action="">
-            <div class="auth-row">
-              <label for="">Email</label>
-              <input type="email" class="input-1" placeholder="youremail@gmail.com"/>
-            </div>
-            <div class="auth-row">
-              <label for="">Password</label>
-              <input type="password" class="input-1" placeholder="Enter your Password"/>
-            </div>
-            <div class="auth-row auth-row-alter">
-              <a href="#" class="link-1">Forgot password?</a>
-            </div>
-            <div class="auth-action">
-              <input type="submit" class="btn trn" value="Login"/>
-            </div>
-          </form>
-        </div>
-        <footer>
-          &copy 2021, all rights reserved
-        </footer>
+  <div class="kdscp-trigger-wrapper">
+    <span class="kdscp-trigger kdscp-icon" data-productId="Female Bra"></span>
+  </div>
+  <!-- <script src="js/kaleidoscope.js" type="text/javascript"></script> -->
+  <div class="alter-modal">
+    <div class="wrapper">
+      <div>
+        <div><img src="images/0518_300x.jpg" alt=""></div>
+        <div><img src="images/0518_300x.jpg" alt=""></div>
+        <div><img src="images/0518_300x.jpg" alt=""></div>
+        <div><img src="images/0518_300x.jpg" alt=""></div>
+        <div><img src="images/0518_300x.jpg" alt=""></div>
+        <div><img src="images/0518_300x.jpg" alt=""></div>
+        <div><img src="images/0518_300x.jpg" alt=""></div>
       </div>
     </div>
-  </section>
+  </div>
+  <style>
+    .alter-modal {
+      position: absolute;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%) translateZ(0);
+      padding: 60px;
+    }
+    .wrapper {
+      transition: transform 1s ease;
+      transform: rotate(720deg) scale(0);
+    }
+    .wrapper:after,
+    .wrapper:before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      background: #00f4591a;
+      opacity: 0;
+      clip-path: polygon(75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%, 25% 7%);
+    }
+    .wrapper:before {
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      transition: all 1100ms ease;
+    }
+    .wrapper:after {
+      left: -80px;
+      top: -80px;
+      right: -80px;
+      bottom: -80px;
+      transition: all 1100ms ease;
+    }
+    .wrapper.loaded {
+      transform: rotate(0deg) scale(1);
+    }
+    .wrapper.loaded:after,
+    .wrapper.loaded:before {
+      opacity: 1;
+    }
+    .wrapper.loaded > div > div {
+      transform: translateX(0) translateY(0) !important;
+    }
+    .wrapper > div > div > img {
+      display: block;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      transition-delay: 1s;
+      width: 100%;
+      height: 100%;
+    }
+    .wrapper.loaded > div > div > img {
+      opacity: 1;
+    }
+    .wrapper > div {
+      position: relative;
+    }
+    .wrapper > div > div {
+      transition: transform 750ms ease;
+      position: absolute;
+      background: rgb(255 255 255 / 100%);
+      /* background-size: contain; */
+      /* background-position: center; */
+      /* background-repeat: no-repeat; */
+      /* clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); */
+      clip-path: polygon(75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%, 25% 7%);
+    }
+    .wrapper > div > div:nth-child(1) {
+      background: #98ffbe;
+      z-index: 1;
+    }
+    .wrapper > div > div:nth-child(2) {
+      background: #ff9aa2;
+    }
+    .wrapper > div > div:nth-child(3) {
+      background: #ffb7b2;
+    }
+    .wrapper > div > div:nth-child(4) {
+      background: #ffdac1;
+    }
+    .wrapper > div > div:nth-child(5) {
+      background: #e2f0cb;
+    }
+    .wrapper > div > div:nth-child(6) {
+      background: #b5ead7;
+    }
+    .wrapper > div > div:nth-child(7) {
+      background: #c7ceea;
+    }
+  </style>
+  <script>
+    var getCoords = (R) => [
+      {
+        x: R,
+        y: R,
+        tX: 0,
+        tY: 0,
+      },
+      {
+        x: R,
+        y: 0,
+        tX: 0,
+        tY: R,
+      },
+      {
+        x: R * (1 + Math.sqrt(3)/2),
+        y: R / 2,
+        tX: -R * Math.sqrt(3)/2,
+        tY: R / 2,
+      },
+      {
+        x: R * (1 + Math.sqrt(3)/2),
+        y: 1.5 * R,
+        tX: -R * Math.sqrt(3)/2,
+        tY: -R / 2,
+      },
+      {
+        x: R,
+        y: 2 * R,
+        tX: 0,
+        tY: -R,
+      },
+      {
+        x: R * (1 - Math.sqrt(3)/2),
+        y: 1.5 * R,
+        tX: R * Math.sqrt(3)/2,
+        tY: -R / 2,
+      },
+      {
+        x: R * (1 - Math.sqrt(3)/2),
+        y: R / 2,
+        tX: R * Math.sqrt(3)/2,
+        tY: R / 2,
+      }
+    ];
+
+    var setPositions = (R) => {
+      var mS = .6;
+      var mB = 1.2;
+      var coords = getCoords(R);
+      document.querySelector(".wrapper").style.padding = `${mS / 2 * R}px`;
+      document.querySelector(".wrapper > div").style.width = `${2 * R}px`;
+      document.querySelector(".wrapper > div").style.height = `${2 * R}px`;
+
+      var nodeList = Array.prototype.slice.call(
+        document.querySelectorAll(".wrapper > div > div")
+      );
+
+      nodeList.map((item, index) => {
+        var m = index ? mS : mB;
+        var d = coords[index];
+        item.style.width = `${m * R}px`;
+        item.style.height =`${m * R}px`;
+        item.style.left = `${d.x - ((m * R) / 2)}px`;
+        item.style.top = `${d.y - ((m * R) / 2)}px`;
+        item.style.transform = `translateX(${d.tX}px) translateY(${d.tY}px)`;
+        item.style.transitionDelay = index ? `${(index - 1) * 50}ms` : "0ms";
+        item.querySelector("img").style.transitionDelay = index ? `${(index - 1) * 100 + 1000}ms` : "1000ms";
+      });
+      window.requestAnimationFrame(loaded);
+    }
+
+    var loaded = () => {
+      document.querySelector(".wrapper").classList.add("loaded");
+    }
+
+    setPositions(200);
+  </script>
 </body>
 </html>
