@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/css.css">
+  <title>y-Hat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css" integrity="sha512-C7hOmCgGzihKXzyPU/z4nv97W0d9bv4ALuuEbSf6hm93myico9qa0hv4dODThvCsqQUmKmLcJmlpRmCaApr83g==" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section class="sidebar">
+    <header>
+      <h1 class="logo">
+        <a href="#">
+          <img src="images/logo1.png"/> y-Hat
+        </a>
+      </h1>
+    </header>
+    <nav>
+      <ul class="main-nav">
+        <li>
+          <a href="#"><i class="icofont-chart-line-alt"></i>Dashboard</a>
+        </li>
+        <li class="active">
+          <a href="#"><i class="icofont-file-text"></i>Terms & conditions</a>
+        </li>
+        <li class="alter">
+          <a href="#"><i class="icofont-sign-out"></i>Log out</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <section class="main">
+    <header class="primary">
+      <h4>Footlocker</h4>
+    </header>
+    <header class="secondary">
+      <h5>Dashboard</h5>
+    </header>
+    <div class="main-container">
+      <div class="horizontal-row">
+        <div class="col6">
+          <div class="panel">
+            <div class="panel-header">
+              All Sales Dollars Plot
+            </div>
+            <div class="panel-content">
+              <canvas id="line-chart-1" width="1600" height="800"></canvas>
+              <script>
+                new Chart(document.getElementById("line-chart-1"), {
+                  type: 'line',
+                  data: {
+                    labels: ["2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12"],
+                    datasets: [{
+                        data: [86,114,106,106,107,111,133,221,783,2478,214,55],
+                        label: "Africa",
+                        borderColor: "#3e95cd",
+                        fill: false
+                      }, {
+                        data: [282,350,411,502,635,809,947,1402,3700,5267,600,55],
+                        label: "Asia",
+                        borderColor: "#8e5ea2",
+                        fill: false
+                      }, {
+                        data: [168,170,178,190,203,276,408,547,675,734,43,55],
+                        label: "Europe",
+                        borderColor: "#3cba9f",
+                        fill: false
+                      }, {
+                        data: [40,20,10,16,24,38,74,167,508,784,88,55],
+                        label: "Latin America",
+                        borderColor: "#e8c3b9",
+                        fill: false
+                      }, {
+                        data: [6,3,2,2,7,26,82,172,312,433,214,55],
+                        label: "North America",
+                        borderColor: "#c45850",
+                        fill: false
+                      }
+                    ]
+                  },
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Totals'
+                        },
+                      }],
+                      xAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Year & Month'
+                        },
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      position: "right",
+                      labels: {
+                        padding: 20,
+                        fontColor: "#545454",
+                      }
+                    },
+                    elements: {
+                      line: {
+                        tension: 0,
+                      }
+                    },
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              Channel Plot
+            </div>
+            <div class="panel-content">
+              <canvas id="line-chart-2" width="1600" height="600"></canvas>
+              <script>
+                new Chart(document.getElementById("line-chart-2"), {
+                  type: 'line',
+                  data: {
+                    labels: ["2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12"],
+                    datasets: [{
+                        data: [86,114,106,783,2478,214,106,107,111,133,221,55],
+                        label: "Africa",
+                        borderColor: "#3e95cd",
+                        fill: false
+                      }, {
+                        data: [282,502,635,809,947,350,411,1402,1600,2000,600,55],
+                        label: "Asia",
+                        borderColor: "#8e5ea2",
+                        fill: false
+                      }, {
+                        data: [168,170,178,190,203,276,408,547,675,734,43,55],
+                        label: "Europe",
+                        borderColor: "#3cba9f",
+                        fill: false
+                      }, {
+                        data: [40,20,10,16,24,38,74,167,508,784,88,55],
+                        label: "Latin America",
+                        borderColor: "#e8c3b9",
+                        fill: false
+                      }, {
+                        data: [6,3,2,2,7,26,82,172,312,433,214,55],
+                        label: "North America",
+                        borderColor: "#c45850",
+                        fill: false
+                      }
+                    ]
+                  },
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Quantity'
+                        },
+                      }],
+                      xAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Year & Month'
+                        },
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      position: "right",
+                      labels: {
+                        padding: 20,
+                        fontColor: "#545454",
+                      }
+                    },
+                    elements: {
+                      line: {
+                        tension: 0,
+                      }
+                    },
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              Seasonality
+            </div>
+            <div class="panel-content">
+              <canvas id="line-chart-3" width="1600" height="500"></canvas>
+              <script>
+                new Chart(document.getElementById("line-chart-3"), {
+                  type: 'line',
+                  data: {
+                    labels: ["2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12"],
+                    datasets: [{
+                        data: [86,114,106,106,-107,111,-133,221,783,2478,214,55],
+                        label: "Africa",
+                        borderColor: "#3e95cd",
+                        fill: false
+                      },
+                    ]
+                  },
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Seasonal'
+                        },
+                      }],
+                      xAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Year & Month'
+                        },
+                      }]
+                    },
+                    legend: {
+                      display: false,
+                    },
+                    elements: {
+                      line: {
+                        tension: 0,
+                      }
+                    },
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="col6">
+          <div class="panel">
+            <div class="panel-header">
+              Categories Plot
+            </div>
+            <div class="panel-content">
+              <canvas id="line-chart-4" width="1600" height="1200"></canvas>
+              <script>
+                new Chart(document.getElementById("line-chart-4"), {
+                  type: 'line',
+                  data: {
+                    labels: ["2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12"],
+                    datasets: [{
+                        data: [86,114,106,783,2478,214,106,107,111,133,221,55],
+                        label: "Africa",
+                        borderColor: "#3e95cd",
+                        fill: false
+                      }, {
+                        data: [282,502,635,809,947,350,411,1402,1600,2000,600,55],
+                        label: "Asia",
+                        borderColor: "#8e5ea2",
+                        fill: false
+                      }, {
+                        data: [168,170,178,190,203,276,408,547,675,734,43,55],
+                        label: "Europe",
+                        borderColor: "#3cba9f",
+                        fill: false
+                      }, {
+                        data: [40,20,10,16,24,38,74,167,508,784,88,55],
+                        label: "Latin America",
+                        borderColor: "#e8c3b9",
+                        fill: false
+                      }, {
+                        data: [6,3,2,2,7,26,82,172,312,433,214,55],
+                        label: "North America",
+                        borderColor: "#c45850",
+                        fill: false
+                      }
+                    ]
+                  },
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Quantity'
+                        },
+                      }],
+                      xAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Year & Month'
+                        },
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      position: "right",
+                      labels: {
+                        padding: 20,
+                        fontColor: "#545454",
+                      }
+                    },
+                    elements: {
+                      line: {
+                        tension: 0,
+                      }
+                    },
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              Sku Stratification
+            </div>
+            <div class="panel-content">
+              <canvas id="line-chart-5" width="1600" height="600"></canvas>
+              <script>
+                new Chart(document.getElementById("line-chart-5"), {
+                  type: 'bar',
+                  data: {
+                    labels: ['0 units', '1 - 12 Units', '1 - 12 Units', '13 - 60', '61 - 120', '120+ Units' ],
+                    datasets: [
+                      {
+                        label: '12 Months',
+                        data: [12, 19, 80, 14, 25, 10, 8],
+                        backgroundColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                      },
+                      {
+                        label: '24 Months',
+                        data: [20, 19, 45, 14, 95, 37, 8],
+                        backgroundColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                      },
+                    ]
+                  },
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          beginAtZero: true
+                        }
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      position: "bottom",
+                      labels: {
+                        padding: 20,
+                        fontColor: "#545454",
+                      },
+                    },
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

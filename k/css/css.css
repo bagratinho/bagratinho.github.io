@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+@import url('icofont.min.css');
+
+html {
+  height: 100%;
+  color: #000;
+  font-size: 10px !important;
+  font-family: 'Lato', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+h6 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 2.1rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+  margin: 0 0 2rem 0;
+}
+
+h2 {
+  font-size: 3.0rem;
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+
+a {
+  color: #a7e4bb;
+}
+
+body {
+  height: 100vh;
+}
+
+input {
+  padding: 10px;
+  line-height: 26px;
+  border: solid 2px #e8e8e8;
+  border-radius: 5px;
+  outline: none;
+  color: #000;
+  font-weight: 400;
+  font-family: 'IBM Plex Sans';
+  width: 100%;
+  font-size: 16px;
+}
+
+input,
+.btn,
+section.sidebar nav ul.main-nav li a,
+.trn {
+  transition: all 0.25s ease;
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #e8e8e8;
+}
+
+input:hover {
+  border-color: #c4c4c4;
+}
+
+input:focus {
+  border-color:#f5e25f;
+}
+
+.btn {
+  padding: 10px 20px;
+  line-height: 30px;
+  background:#f5e25f;
+  border-radius: 5px;
+  outline: none;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.main-auth {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 30px;
+}
+
+.main-auth:before {
+  position: absolute;
+  left: 0;
+  width: calc(50% - 60px);
+  top: 0;
+  bottom: 0;
+  content: "";
+  background: #999a9c;
+}
+
+.panel-auth {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  width: 800px;
+  height: 500px;
+  box-shadow: 0 0 20px 0 rgb(136 136 136 / 30%);
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.panel-auth .left {
+  width: calc(50% - 60px);
+  height: 100%;
+  background: #999a9c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.panel-auth .left h1{
+  display: block;
+  margin: 0;
+  width: 220px;
+  max-width: 100%;
+}
+
+.panel-auth .left h1 img{
+  display: block;
+  max-width: 100%;
+}
+
+.panel-auth .right {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  flex: 1;
+  padding: 40px 80px;
+}
+
+.panel-auth .right > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.panel-auth .right > div .auth-row{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.panel-auth .right > div .auth-row-alter {
+  margin-bottom: 40px;
+  align-items: flex-end;
+}
+
+.panel-auth .right > div .auth-row label {
+  margin-bottom: 4px;
+  display: block;
+}
+
+.panel-auth .right > div h3{
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0 20px;
+  bottom: 10px;
+  line-height: 20px;
+  font-size: 10px;
+}
+
+section.sidebar {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #f5e25f;
+  border-right: solid 1px #00000026;
+}
+
+section.sidebar header {
+  color:  #f5e25f;
+  background: linear-gradient(0deg, #0000001a, transparent);
+}
+
+section.sidebar header h1 {
+  display: block;
+  margin: 0;
+}
+
+section.sidebar header h1 a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  padding: 16px;
+  font-weight: 700;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+section.sidebar header h1 a img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+}
+
+section.sidebar nav ul.main-nav {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+section.sidebar nav ul.main-nav li {
+  display: flex;
+  list-style: none;
+  border-top: solid 1px #00000026;
+}
+
+section.sidebar nav ul.main-nav li a {
+  display: flex;
+  text-decoration: none;
+  padding: 24px 16px;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  align-items: center;
+  flex: 1;
+}
+
+section.sidebar nav ul.main-nav li:not(.active) a:hover {
+  transform: translateX(8px);
+}
+
+section.sidebar nav ul.main-nav li.active a {
+  color: #e1113e;
+  font-weight: 700;
+  background: linear-gradient(270deg, #0000001a, transparent);
+}
+
+section.sidebar nav ul.main-nav li a i {
+  display: block;
+  margin-right: 10px;
+}
+
+section.main {
+  margin-left: 300px;
+  min-height: 100%;
+  background: #f9faff;
+}
+
+section.main header.primary {
+  padding: 16px 24px;
+  border-bottom: solid 1px #00000026;
+  line-height: 50px;
+  background: #fff;
+}
+
+section.main header.secondary {
+  padding: 24px;
+}
+section.main header.secondary h5 {
+  color: #545454;
+}
+
+section.main header.primary h4 {
+  margin: 0;
+  color: #545454;
+  color: #e1113e;
+}
+
+section.main .main-container {
+  padding: 0 24px;
+}
+
+.horizontal-row {
+  display: flex;
+  margin: 0 -12px;
+}
+
+*[class^="col"] {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.col12 {
+  width: calc(100% - 24px);
+}
+
+.col9 {
+  width: calc(100% * 9 / 12 - 24px);
+}
+
+.col6 {
+  width: calc(100% * 6 / 12 - 24px);
+}
+
+.col3 {
+  width: calc(100% * 3 / 12 - 24px);
+}
+
+.panel {
+  padding: 16px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 0 #6c6c6c2b;
+  color: #545454;
+  margin-bottom: 24px;
+}
+
+.panel-header {
+  padding: 12px 16px;
+  margin: -16px -16px 16px -16px;
+  border-radius: 2px 2px 0 0;
+  background: #00000005;
+  line-height: 20px;
+  font-size: 14px;
+  color: #848484;
+  font-weight: 700;
+}
+
+.main-container {
+  /* width: 1000px;
+  max-width: 100%; */
+}
+
+@media (max-width: 767px) {
+  .main-auth:before {
+    bottom: calc(50% + 125px);
+    width: 100%;
+  }
+
+  .panel-auth {
+    flex-direction: column;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .panel-auth .left {
+    height: 160px;
+    padding: 20px;
+    width: 100%;
+  }
+  .panel-auth .right {
+    padding: 30px 0;
+    height: 410px;
+    flex: auto;
+    align-items: flex-start;
+  }
+
+  .panel-auth .left h1,
+  .panel-auth .left h1 img{
+    height: 80px;
+    width: auto;
+  }
+}
