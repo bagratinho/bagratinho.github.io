@@ -14,13 +14,13 @@
   <div class="alter-modal">
     <div class="wrapper">
       <div>
-        <div><img src="images/0518_300x.jpg" alt=""></div>
-        <div><img src="images/0518_300x.jpg" alt=""></div>
-        <div><img src="images/0518_300x.jpg" alt=""></div>
-        <div><img src="images/0518_300x.jpg" alt=""></div>
-        <div><img src="images/0518_300x.jpg" alt=""></div>
-        <div><img src="images/0518_300x.jpg" alt=""></div>
-        <div><img src="images/0518_300x.jpg" alt=""></div>
+        <div><div><img src="images/0518_300x.jpg" alt=""></div></div>
+        <div><div><img src="images/0518_300x.jpg" alt=""></div><span>$7.00</span><button>DETAILS</button></div>
+        <div><div><img src="images/0518_300x.jpg" alt=""></div><span>$7.00</span><button>DETAILS</button></div>
+        <div><div><img src="images/0518_300x.jpg" alt=""></div><span>$7.00</span><button>DETAILS</button></div>
+        <div><div><img src="images/0518_300x.jpg" alt=""></div><span>$7.00</span><button>DETAILS</button></div>
+        <div><div><img src="images/0518_300x.jpg" alt=""></div><span>$7.00</span><button>DETAILS</button></div>
+        <div><div><img src="images/0518_300x.jpg" alt=""></div><span>$7.00</span><button>DETAILS</button></div>
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@
     .wrapper.loaded > div > div {
       transform: translateX(0) translateY(0) !important;
     }
-    .wrapper > div > div > img {
+    .wrapper > div > div > div > img {
       display: block;
       opacity: 0;
       transition: opacity 0.6s ease;
@@ -79,42 +79,84 @@
       width: 100%;
       height: 100%;
     }
-    .wrapper.loaded > div > div > img {
+    .wrapper > div > div > span {
+      transition-delay: 1100ms;
+      top: 0;
+      position: absolute;
+      left: 0;
+      transform: translateY(50%);
+      height: 30px;
+      border-radius: 5px;
+      border: 0;
+      font-weight: bold;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      line-height: 30px;
+      padding: 0 10px;
+      background: rgb(143 143 183 / 50%);
+      font-family: Lato;
+    }
+    .wrapper > div > div > button {
+      transition-delay: 1100ms;
+      width: 100%;
+      bottom: 0;
+      position: absolute;
+      left: 0;
+      transform: translateY(50%);
+      height: 30px;
+      border-radius: 5px;
+      border: 0;
+      border: solid 1px #8d8db6;
+      color: #8d8db6;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      background: #ffffff;
+      outline: none;
+    }
+    .wrapper.loaded > div > div > span ,
+    .wrapper.loaded > div > div > button ,
+    .wrapper.loaded > div > div > div > img {
       opacity: 1;
     }
     .wrapper > div {
       position: relative;
     }
+    .wrapper > div > div > div {
+      width: 100%;
+      height: 100%;
+      background: rgb(255 255 255 / 100%);
+      clip-path: polygon(75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%, 25% 7%);
+    }
     .wrapper > div > div {
       transition: transform 750ms ease;
       position: absolute;
-      background: rgb(255 255 255 / 100%);
       /* background-size: contain; */
       /* background-position: center; */
       /* background-repeat: no-repeat; */
       /* clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); */
-      clip-path: polygon(75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%, 25% 7%);
     }
-    .wrapper > div > div:nth-child(1) {
+    .wrapper > div > div:nth-child(1) > div {
       background: #98ffbe;
       z-index: 1;
     }
-    .wrapper > div > div:nth-child(2) {
+    .wrapper > div > div:nth-child(2) > div {
       background: #ff9aa2;
     }
-    .wrapper > div > div:nth-child(3) {
+    .wrapper > div > div:nth-child(3) > div {
       background: #ffb7b2;
     }
-    .wrapper > div > div:nth-child(4) {
+    .wrapper > div > div:nth-child(4) > div {
       background: #ffdac1;
     }
-    .wrapper > div > div:nth-child(5) {
+    .wrapper > div > div:nth-child(5) > div {
       background: #e2f0cb;
     }
-    .wrapper > div > div:nth-child(6) {
+    .wrapper > div > div:nth-child(6) > div {
       background: #b5ead7;
     }
-    .wrapper > div > div:nth-child(7) {
+    .wrapper > div > div:nth-child(7) > div {
       background: #c7ceea;
     }
   </style>
@@ -185,7 +227,11 @@
         item.style.top = `${d.y - ((m * R) / 2)}px`;
         item.style.transform = `translateX(${d.tX}px) translateY(${d.tY}px)`;
         item.style.transitionDelay = index ? `${(index - 1) * 50}ms` : "0ms";
-        item.querySelector("img").style.transitionDelay = index ? `${(index - 1) * 100 + 1000}ms` : "1000ms";
+        item.querySelector("img").style.transitionDelay = index ? `${index * 100 + 1000}ms` : "1000ms";
+        if (index) {
+          item.querySelector("span").style.transitionDelay = index ? `${(index - 1) * 100 + 1000}ms` : "1000ms";
+          item.querySelector("button").style.transitionDelay = index ? `${(index - 1) * 100 + 1000}ms` : "1000ms";
+        }
       });
       window.requestAnimationFrame(loaded);
     }
