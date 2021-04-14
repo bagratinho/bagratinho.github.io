@@ -23,7 +23,7 @@
   <section class="main-dahsboard">
     <div class="primary-list">
       <header class="primary space-between-align ">
-        <h3>PRODUCT LIBRARY</h3>
+        <h3>SELECT MAIN PRODUCT</h3>
         <div class="search-bar">
           <input type="text" placeholder="SEARCH PRODUCT">
         </div>
@@ -318,7 +318,7 @@
       </div>
       <div class="secondary-list">
         <header class="primary space-between-align ">
-          <h3>PRODUCT LIBRARY</h3>
+          <h3>SELECT SUPPORTING PRODUCTS</h3>
           <div class="search-bar">
             <input type="text" placeholder="SEARCH PRODUCT">
           </div>
@@ -518,5 +518,14 @@
       </div>
     </div>
   </section>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( ".product-list .product-item img" ).draggable({ opacity: 0.85, helper: "clone" });
+    } );
+    </script>
 </body>
 </html>
