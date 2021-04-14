@@ -164,6 +164,10 @@
     document.querySelector(".prsmtk-modal-product-name").innerHTML = e.target.getAttribute("data-product-name");
     document.querySelector(".prsmtk-modal-product-name-alter").innerHTML = e.target.getAttribute("data-product-name");
     document.querySelector(".prsmtk-modal-product-price").innerHTML = `$${e.target.getAttribute("data-product-price")}`;
+    var bgColor = getComputedStyle(e.target.parentNode).backgroundColor;
+    document.querySelector(".prsmtk-modal-inner-left").style.background = bgColor;
+    document.querySelector(".prsmtk-modal-inner-bottom").style.background = bgColor;
+
   }
 
   function onInteraction(productId, endpoint) {
@@ -313,7 +317,6 @@
   };
 
   function api(query) {
-    console.log(query);
     return new Promise(resolve => {
       fetch(`https://prismatik.io/api/${query.endpoint}`, {
         headers: query.headers,
