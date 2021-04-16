@@ -1,0 +1,329 @@
+{% extends "template.html" %}
+
+
+
+{% block content %}
+<section class="main-dashboard">
+    <div class="primary-list">
+      <header class="primary space-between-align ">
+        <h3>SELECT MAIN PRODUCT</h3>
+        <div class="search-bar">
+          <input type="text" placeholder="SEARCH PRODUCT">
+        </div>
+      </header>
+      <header class="secondary center-align" data-lbl-2="SEARCH RESULTS" data-lbl-1="ALL PRODUCTS">
+        ALL PRODUCTS
+      </header>
+      <header class="product-table-header">
+        <div class="col">
+          PHOTO
+        </div>
+        <div class="col">
+          DESCRIPTION
+        </div>
+      </header>
+      <section class="product-list"></section>
+    </div>
+    <div class="rest disabled">
+      <div class="modal-preview">
+        <header class="primary center-align">
+          <h3>PRISM VIEW</h3>
+        </header>
+        <div class="prsmtk-modal" style="padding: 80px;">
+          <div style="width: 320px; height: 320px;">
+            <div class="prsmtk-item main" style="left: 80px; top: 80px;">
+            <div>
+            </div>
+            </div>
+
+            <div class="prsmtk-item" style="left: 80px; top: -80px;">
+            <div>
+              <div class="label">
+                DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+              </div>
+            </div>
+            </div>
+
+            <div class="prsmtk-item" style="left: 218.564px; top: 0px;">
+            <div>
+              <div class="label">
+                DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+              </div>
+            </div>
+            </div>
+
+            <div class="prsmtk-item" style="left: 218.564px; top: 160px;">
+            <div>
+              <div class="label">
+                DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+              </div>
+            </div>
+            </div>
+
+            <div class="prsmtk-item" style="left: 80px; top: 240px;">
+            <div>
+              <div class="label">
+                DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+              </div>
+            </div>
+            </div>
+
+            <div class="prsmtk-item" style="left: -58.5641px; top: 160px;">
+            <div>
+              <div class="label">
+                DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+              </div>
+            </div>
+            </div>
+
+            <div class="prsmtk-item" style="left: -58.5641px; top: 0px;">
+            <div>
+              <div class="label">
+                DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="action-bar">
+          <button id="hex-save-button" >SAVE</button>
+          <button id="hex-delete-button" class="alert">DELETE</button>
+          <button id="hex-cancel-button" class="enabled">CANCEL</button>
+        </div>
+        <div class="reserve">
+          <header class="primary center-align">
+            <h3>RESERVE PRODUCTS</h3>
+          </header>
+          <div class="reserve-items">
+            <div class="prsmtk-item">
+              <div>
+                <div class="label">
+                  DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+                </div>
+              </div>
+            </div>
+            <div class="prsmtk-item">
+              <div>
+                <div class="label">
+                  DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+                </div>
+              </div>
+            </div>
+            <div class="prsmtk-item">
+              <div>
+                <div class="label">
+                  DRAG AND DROP THE PHOTO OF THE DESIRED PRODUCTS FROM THE LIST ON THE RIGHT
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="secondary-list">
+        <header class="primary space-between-align ">
+          <h3>SELECT SUPPORTING PRODUCTS</h3>
+          <div class="search-bar">
+            <input type="text" placeholder="SEARCH PRODUCT">
+          </div>
+        </header>
+        <header class="secondary center-align" data-lbl-2="SEARCH RESULTS" data-lbl-1="ALL PRODUCTS">
+          ALL PRODUCTS
+        </header>
+        <header class="product-table-header">
+          <div class="col">
+            PHOTO
+          </div>
+          <div class="col">
+            DESCRIPTION
+          </div>
+          <div class="col">
+            STATUS
+          </div>
+          <div class="col">
+            INVENTORY
+          </div>
+          <div class="col">
+            INSIGHTS
+          </div>
+        </header>
+        <section class="product-list"></section>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    $(function() {
+      var originalProductList = Object.values(JSON.parse("{{ prod_list }}".replace(/&quot;/g,'"')));
+      var secondaryProductListKeyword = "";
+      var primaryProductListKeyword = "";
+      var primaryProductList = [];
+      var secondaryProductList = [];
+      var selectedPid;
+      var currentSavedMerchList = [];
+      var currentMerchList = [];
+      var isSaveButtonEnabled = false;
+      var isDeleteButtonEnabled = false;
+      $(".action-bar").on("click", "#hex-delete-button", function () {
+        deleteMerchList(selectedPid);
+        clearHex();
+      });
+      $(".action-bar").on("click", "#hex-save-button", function () {
+        saveMerchList(selectedPid, currentMerchList);
+        clearHex();
+      });
+      $(".action-bar").on("click", "#hex-cancel-button", function () {
+        clearHex();
+      });
+      $(".prsmtk-item").on("click", ".product-remove-trigger", function () {
+        var pid = $(this).attr("data-pid");
+        currentMerchList = currentMerchList.filter(i => i !== pid);
+        console.log(currentMerchList);
+        $(this).parent().find("img").remove();
+        $(this).remove();
+        updateButtonsState();
+      });
+      $(".primary-list .product-list").on("click", ".product-item", function () {
+        clearHex();
+        var pid = $(this).attr("data-pid");
+        var imgUrl = originalProductList.find(i => i.product_id === pid).image_url;
+        selectedPid = pid;
+        updateSecondaryList();
+        $(".prsmtk-modal .prsmtk-item.main div").append(`<img src="${imgUrl}"/>`);
+        $(".main-dashboard .rest").removeClass("disabled");
+      });
+      $(".modal-preview .prsmtk-item:not(.main) > div").droppable({
+        accept: ".product-list .product-item img",
+        drop: function( event, ui ) {
+          var src = ui.draggable.attr("src");
+          var pid = ui.draggable.attr("data-pid");
+          if (currentMerchList.indexOf(pid) === -1) {
+            currentMerchList.push(pid);
+            $(this).append(`<img src="${ui.draggable.attr("src")}"" />`);
+            $(this).parent().append(`<i class="product-remove-trigger" data-pid="${pid}"/>`);
+            updateButtonsState();
+          } else {
+            dispatchStatusMessage("warning", "The list already contains this product");
+          }
+        }
+      });
+      var updateSecondaryList = function() {
+        secondaryProductList = originalProductList.filter(i => i.name.toLowerCase().indexOf(secondaryProductListKeyword) !== -1 && i.product_id !== selectedPid);
+        redrawSecondaryList();
+      }
+      var updatePrimaryList = function() {
+        primaryProductList = originalProductList.filter(i => i.name.toLowerCase().indexOf(primaryProductListKeyword) !== -1);
+        redrawPrimaryList();
+      }
+      var redrawPrimaryList = function() {
+        $(".primary-list .product-list").empty();
+        var html = primaryProductList.reduce((acc, item) => {
+          return item.active ? `
+            ${acc}
+            <div class="product-item" data-pid="${item.product_id}">
+              <div class="col">
+                <img src="${item.image_url}"/>
+              </div>
+              <div class="col">
+                ${item.name}
+              </div>
+            </div>
+          ` : acc;
+        }, "")
+        $(".primary-list .product-list").append(html);
+      }
+      var redrawSecondaryList = function() {
+        $(".secondary-list .product-list").empty();
+        var html = secondaryProductList.reduce((acc, item) => {
+          return `
+            ${acc}
+            <div class="product-item" >
+              <div class="col">
+                <img data-pid="${item.product_id}" src="${item.image_url}"/>
+              </div>
+              <div class="col">
+                ${item.name}
+              </div>
+              <div class="col">
+                <div class="status active">${item.active}</div>
+              </div>
+              <div class="col">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione debitis vero ab totam officiis repellat.
+              </div>
+              <div class="col">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione debitis vero ab totam officiis repellat.
+              </div>
+            </div>
+          `;
+        }, "")
+        $(".secondary-list .product-list").append(html);
+        $(".secondary-list .product-list .product-item img").draggable({ opacity: 1, helper: "clone", containment: "body", scroll: false });
+      }
+      var onSecondarySearchChange = function(e) {
+        secondaryProductListKeyword = e.target.value;
+        var node = $(".secondary-list header.secondary");
+        var lbl1 = node.attr("data-lbl-1");
+        var lbl2 = node.attr("data-lbl-2");
+        node.empty();
+        node.append(secondaryProductListKeyword.length ? `"${secondaryProductListKeyword}" ${lbl2}` : lbl1);
+        updateSecondaryList();
+      }
+      var onPrimarySearchChange = function(e) {
+        primaryProductListKeyword = e.target.value;
+        var node = $(".primary-list header.secondary");
+        var lbl1 = node.attr("data-lbl-1");
+        var lbl2 = node.attr("data-lbl-2");
+        node.empty();
+        node.append(primaryProductListKeyword.length ? `"${primaryProductListKeyword}" ${lbl2}` : lbl1);
+        updatePrimaryList();
+      }
+      $(".primary-list .search-bar input").on("keyup", onPrimarySearchChange);
+      $(".secondary-list .search-bar input").on("keyup", onSecondarySearchChange);
+      var dispatchStatusMessage = function(type, message) {
+
+      }
+      var clearHex = function() {
+        selectedPid = undefined;
+        currentMerchList = [];
+        currentSavedMerchList = [];
+        isSaveButtonEnabled = false;
+        isDeleteButtonEnabled = false;
+        primaryProductList = originalProductList;
+        secondaryProductList = originalProductList;
+        secondaryProductListKeyword = "";
+        updateButtonsState();
+        updateSecondaryList();
+        $(".modal-preview .prsmtk-item img").remove();
+        $(".modal-preview .prsmtk-item i").remove();
+        $(".main-dashboard .rest").addClass("disabled");
+      }
+      var redrawButtons = function() {
+        if (isDeleteButtonEnabled) {
+          $("#hex-delete-button").addClass("enabled");
+        } else {
+          $("#hex-delete-button").removeClass("enabled");
+        }
+        if (isSaveButtonEnabled) {
+          $("#hex-save-button").addClass("enabled");
+        } else {
+          $("#hex-save-button").removeClass("enabled");
+        }
+      }
+      var isMerchListModified = function() {
+        if (currentSavedMerchList.length !== 6) {
+          return true;
+        } else {
+          return currentMerchList.reduce((acc, item) => `${acc}${item}`, "") !==
+            currentSavedMerchList.reduce((acc, item) => `${acc}${item}`, "");
+        }
+      }
+      var updateButtonsState = function() {
+        isSaveButtonEnabled = currentMerchList.length === 6 && isMerchListModified();
+        isDeleteButtonEnabled = currentSavedMerchList.length === 6;
+        redrawButtons();
+      }
+      updatePrimaryList();
+      updateSecondaryList();
+    });
+  </script>
+
+{% end %}

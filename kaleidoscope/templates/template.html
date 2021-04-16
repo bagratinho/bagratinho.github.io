@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Prismatik.io</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <link rel="stylesheet" href="{{ static_url('css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ static_url('css/admin.css') }}">
+    <link rel="icon" href="{{ static_url('images/favicon.ico') }}"/>
+    <link rel="icon" href="static/images/favicon.ico"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+
+  <body>
+  <header class="main">
+    <h1 class="logo"><a href="">PRISMATIK</a></h1>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="/merchendise">MERCHENDISE</a></li>
+        <li><a href="/dashboard">DASHBOARD</a></li>
+        <li><a href="/clear">LOG OUT</a></li>
+      </ul>
+    </nav>
+  </header>
+  {% block content %}{% end %}
+</body>
+</html>

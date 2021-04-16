@@ -9,6 +9,7 @@ html {
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 * {
@@ -23,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 header.main {
@@ -118,6 +120,7 @@ header.main {
 .main-dashboard .rest {
   display: flex;
   flex: 1;
+  transition: opacity 0.3s ease;
 }
 
 .main-dashboard .rest .modal-preview .action-bar button:hover {
@@ -237,6 +240,16 @@ section.product-list {
   overflow-x: hidden;
   flex: 1;
 }
+section.product-list:empty:before {
+  content: "nothing to show";
+  margin: auto;
+  font-size: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #656665;
+}
 
 section.product-list .product-item:hover .col{
   background: rgb(242 241 241 / 80%);
@@ -249,6 +262,14 @@ section.product-list .product-item:hover .col:nth-child(2n+1){
 section.product-list .product-item{
   border-bottom: solid 1px #d6d6d5;
   display: flex;
+  cursor: pointer;
+}
+
+.secondary-list section.product-list .product-item{
+  cursor: default;
+}
+
+.secondary-list section.product-list .product-item img{
   cursor: pointer;
 }
 
@@ -285,22 +306,22 @@ div.status.active {
   transform: rotate(-90deg);
 }
 
-.prsmtk-modal-inner-right {
+.prsmtk-modal {
   width: 480px;
   margin: 0 auto;
 }
 
 
-.prsmtk-modal-inner-right > div {
+.prsmtk-modal > div {
   position: relative;
 }
 
-.prsmtk-modal-inner-right > div > div > div .label{
+.prsmtk-modal > div > div > div .label{
   padding: 25px;
   text-align: center;
   color: white;
 }
-.prsmtk-modal-inner-right > div > div > div {
+.prsmtk-modal > div > div > div {
   width: 100%;
   height: 100%;
   background: rgb(255 255 255 / 100%);
@@ -311,45 +332,45 @@ div.status.active {
   align-items: center;
 }
 
-.prsmtk-modal-inner-right > div > div:nth-child(1) > div {
+.prsmtk-modal > div > div:nth-child(1) > div {
   background: #585858;
   z-index: 1;
 }
 
-.prsmtk-modal-inner-right > div > div:nth-child(2) > div {
+.prsmtk-modal > div > div:nth-child(2) > div {
   background: #009678;
 }
 
-.prsmtk-modal-inner-right > div > div:nth-child(3) > div {
+.prsmtk-modal > div > div:nth-child(3) > div {
   background: #255c9b;
 }
 
-.prsmtk-modal-inner-right > div > div:nth-child(4) > div {
+.prsmtk-modal > div > div:nth-child(4) > div {
   background: #522b6f;
 }
 
-.prsmtk-modal-inner-right > div > div:nth-child(5) > div {
+.prsmtk-modal > div > div:nth-child(5) > div {
   background: #d82832;
 }
 
-.prsmtk-modal-inner-right > div > div:nth-child(6) > div {
+.prsmtk-modal > div > div:nth-child(6) > div {
   background: #e77a36;
 }
 
-.prsmtk-modal-inner-right > div > div:nth-child(7) > div {
+.prsmtk-modal > div > div:nth-child(7) > div {
   background: #f0ab3d;
 }
 
-.prsmtk-modal-inner-right > div > div {
+.prsmtk-modal > div > div {
   position: absolute;
 }
 
-.prsmtk-modal-inner-right i:hover {
+.prsmtk-modal i:hover {
   opacity: 0.9;
 }
 
 .reserve-items .prsmtk-item i,
-.prsmtk-modal-inner-right i {
+.prsmtk-modal i {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACABAMAAAAxEHz4AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAT2AAAE9gGYDiZUAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAABVQTFRF////AAAAAAAAAAAAAAAAAAAAAAAAPYbscQAAAAZ0Uk5TAARUp6v7ZOI89wAAAgBJREFUaN6lmruVgzAQRQUVEFCAz9mjBjbYnMQFOKCBxdN/CQ6WtUDoM8/XmY5HfhcQ83UIIYQwfAf58zUdFvPzpu4f1yUthrs91B+ItiWE2UxFGFez5QBgKkI0SwizmYowrmZvhOFupiJEs4Qwm6kIfwA7wg4gIcR9yzYlAAXhH8BsOQAICPG9ZZsSgB8hAZgt4SctvAjxsOX3tPIhHAHskS9FgOctyAgXRRXhKqghFPQ0hJKcglBUUxDKYn6EipYfoSblRagqeRHqQj6Eho4PoSXjQWiqeBDaIn2EjkYfoSfR+76r0DPoX2PbwnGX2yae59yycZ20lpHvrNetnG9b3cz7vtfs3B6nZuj3eWVLweuWTRW/X7KVIk/JWIt9V2sx+l7N1fif28sZSL5Bz4HOO/QUKEPQATIEHSBD+ADgjPABQA1BqQciAygjaDVRZAAlBLUujAzgiqDXxpEB5Ag6QIagA/AfwJdAbyJ+jPQg4aNMXyb8OlOHgl0adarYrdPAgkMbDa44vNMEA6c4NMnCaR5NNHGqS5NtnO7TggOXPLTowmUfLTxx6UuLb1z+0wYEboHQJgxuA9FGFG6F0WYcbgfShiRuidKmLG4L08Y0bo3T5jweD9ABBR6R4CENHhPhQRUeleFhHR8X4oElH5nioS0fG+PBNR+d4+E9+fvAC4KFTDHunKDhAAAAAElFTkSuQmCC');
   background-size: 14px;
   width: 30px;
@@ -370,7 +391,7 @@ div.status.active {
 }
 
 .reserve-items .prsmtk-item > div img,
-.prsmtk-modal-inner-right img {
+.prsmtk-modal img {
   display: block;
   max-width: 100%;
   transition: all 0.2s ease;
@@ -405,7 +426,7 @@ div.status.active {
 }
 
 .reserve-items .prsmtk-item,
-.prsmtk-modal-inner-right .prsmtk-item {
+.prsmtk-modal .prsmtk-item {
   width: 160px;
   height: 160px;
 }
