@@ -205,6 +205,9 @@
         }
 
         const OPEN_BTN_LABEL = openBtn.textContent
+        const SUBTITLE_TEXT = subtitle.textContent
+
+        let currentJoinLink = null
 
         function onHide () {
             if (!attempted) return
@@ -233,25 +236,45 @@
             }, OPEN_TIMEOUT_MS)
         }
 
+        function render () {
+            clearTimeout(fallbackTimer)
+            attempted = false
+            awaitingReturn = false
+            status.textContent = ''
+            openBtn.disabled = false
+            openBtn.textContent = OPEN_BTN_LABEL
+
+            const { payload, build } = parseInviteParams()
+
+            if (!payload) {
+                currentJoinLink = null
+                card.classList.add('error-card')
+                subtitle.textContent = 'This invite link is missing or invalid.'
+                openBtn.style.display = 'none'
+                roomLink.style.display = 'none'
+            } else {
+                card.classList.remove('error-card')
+                subtitle.textContent = SUBTITLE_TEXT
+                openBtn.style.display = ''
+                roomLink.style.display = ''
+                currentJoinLink = buildJoinLink(payload, build)
+                roomLink.textContent = currentJoinLink
+            }
+        }
+
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) onHide()
             else onShow()
         })
         window.addEventListener('blur', onHide)
         window.addEventListener('focus', onShow)
+        window.addEventListener('hashchange', render)
 
-        const { payload, build } = parseInviteParams()
+        openBtn.addEventListener('click', () => {
+            if (currentJoinLink) attemptOpenKeet(currentJoinLink)
+        })
 
-        if (!payload) {
-            card.classList.add('error-card')
-            subtitle.textContent = 'This invite link is missing or invalid.'
-            openBtn.style.display = 'none'
-            roomLink.style.display = 'none'
-        } else {
-            const joinLink = buildJoinLink(payload, build)
-            roomLink.textContent = joinLink
-            openBtn.addEventListener('click', () => attemptOpenKeet(joinLink))
-        }
+        render()
     </script>
 
 </body>
