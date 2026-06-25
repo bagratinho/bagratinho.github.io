@@ -184,11 +184,12 @@
             const isIOS = /ipad|iphone|ipod/.test(ua)
             const isMac = /macintosh|mac os x/.test(ua)
             const isIPadOS = isMac && navigator.maxTouchPoints > 1
+            const isAndroid = /android/.test(ua)
 
             if (isIOS || isIPadOS) {
-                return 'https://apps.apple.com/app/id6443880549&utm_source=join&utm_medium=btn'
+                return 'https://apps.apple.com/app/id6443880549?utm_source=join&utm_medium=btn'
             }
-            if (/android/.test(ua)) {
+            if (isAndroid) {
                 return 'https://play.google.com/store/apps/details?id=io.keet.app&utm_source=join&utm_medium=btn'
             }
             return 'https://keet.io/download'
