@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join on Keet</title>
+    <style>
+        :root {
+            --bg-dark: #0f111a;
+            --bg-card: #1c2033;
+            --text-main: #ffffff;
+            --text-muted: #8b9bb4;
+            --accent-cyan: #46e3d6;
+            --accent-blue: #33c5f4;
+            --gradient-main: linear-gradient(135deg, #0b0d17 0%, #1a1d3a 100%);
+            --gradient-btn: linear-gradient(90deg, #46e3d6 0%, #33c5f4 100%);
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background: var(--gradient-main);
+            background-attachment: fixed;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 440px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            margin: 0 10px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin: 0 0 10px;
+            font-weight: 800;
+        }
+
+        h1 span {
+            background: var(--gradient-btn);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-btn);
+            color: #0b0d17;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(70, 227, 214, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: default;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .status {
+            margin-top: 18px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            min-height: 1.2em;
+        }
+
+        .download-fallback {
+            display: block;
+            margin-top: 20px;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .download-fallback:hover {
+            text-decoration: underline;
+        }
+
+        .room-link {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px auto;
+            word-wrap: break-word;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .error-card .subtitle {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+
+        .bg-doodle {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-doodle"></div>
+
+    <div class="card" id="card">
+        <h1>Join on <span>Keet</span></h1>
+        <p class="subtitle" id="subtitle">You've been invited to join a group on Keet.</p>
+
+        <div class="room-link" id="roomLink"></div>
+
+        <button class="btn-primary" id="openBtn">Join Group with Keet</button>
+        <div class="status" id="status"></div>
+
+        <a class="download-fallback" id="downloadFallback" href="https://keet.io/download">
+            Don't have Keet? Download it here.
+        </a>
+    </div>
+
+    <script>
+        const OPEN_TIMEOUT_MS = 2000
+
+        const card = document.getElementById('card')
+        const subtitle = document.getElementById('subtitle')
+        const roomLink = document.getElementById('roomLink')
+        const openBtn = document.getElementById('openBtn')
+        const status = document.getElementById('status')
+        const downloadFallback = document.getElementById('downloadFallback')
+
+        function getDownloadUrl () {
+            const ua = navigator.userAgent.toLowerCase()
+
+            const isIOS = /ipad|iphone|ipod/.test(ua)
+            const isMac = /macintosh|mac os x/.test(ua)
+            const isIPadOS = isMac && navigator.maxTouchPoints > 1
+
+            if (isIOS || isIPadOS) {
+                return 'https://apps.apple.com/app/id6443880549&utm_source=join&utm_medium=btn'
+            }
+            if (/android/.test(ua)) {
+                return 'https://play.google.com/store/apps/details?id=io.keet.app&utm_source=join&utm_medium=btn'
+            }
+            return 'https://keet.io/download'
+        }
+
+        const DOWNLOAD_URL = getDownloadUrl()
+        downloadFallback.href = DOWNLOAD_URL
+
+        let fallbackTimer = null
+        let attempted = false
+        let awaitingReturn = false
+
+        function parseInviteParams () {
+            const hash = window.location.hash.slice(1)
+            const [payload, ...rest] = hash.split('&')
+            const params = { payload }
+
+            rest.forEach((part) => {
+                const [key, value] = part.split('=')
+                if (key && value) params[key] = decodeURIComponent(value)
+            })
+
+            const urlParams = new URLSearchParams(window.location.search)
+            if (urlParams.has('build')) params.build = urlParams.get('build')
+
+            return params
+        }
+
+        function buildJoinLink (payload, build) {
+            if (build === 'internal') return `keet-internal://keet/${payload}`
+            if (build === 'nightly') return `keet-nightly://keet/${payload}`
+            return `keet://chat/${payload}`
+        }
+
+        const OPEN_BTN_LABEL = openBtn.textContent
+        const SUBTITLE_TEXT = subtitle.textContent
+
+        let currentJoinLink = null
+
+        function onHide () {
+            if (!attempted) return
+            clearTimeout(fallbackTimer)
+            awaitingReturn = true
+        }
+
+        function onShow () {
+            if (!awaitingReturn) return
+            awaitingReturn = false
+            attempted = false
+            openBtn.disabled = false
+            openBtn.textContent = OPEN_BTN_LABEL
+        }
+
+        function attemptOpenKeet (joinLink) {
+            attempted = true
+            openBtn.disabled = true
+            openBtn.textContent = 'Opening Keet…'
+
+            window.location.href = joinLink
+
+            fallbackTimer = setTimeout(() => {
+                status.textContent = "Couldn't find Keet installed, redirecting to download…"
+                window.location.href = DOWNLOAD_URL
+            }, OPEN_TIMEOUT_MS)
+        }
+
+        function render () {
+            clearTimeout(fallbackTimer)
+            attempted = false
+            awaitingReturn = false
+            status.textContent = ''
+            openBtn.disabled = false
+            openBtn.textContent = OPEN_BTN_LABEL
+
+            const { payload, build } = parseInviteParams()
+
+            if (!payload) {
+                currentJoinLink = null
+                card.classList.add('error-card')
+                subtitle.textContent = 'This invite link is missing or invalid.'
+                openBtn.style.display = 'none'
+                roomLink.style.display = 'none'
+            } else {
+                card.classList.remove('error-card')
+                subtitle.textContent = SUBTITLE_TEXT
+                openBtn.style.display = ''
+                roomLink.style.display = ''
+                currentJoinLink = buildJoinLink(payload, build)
+                roomLink.textContent = currentJoinLink
+            }
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) onHide()
+            else onShow()
+        })
+        window.addEventListener('blur', onHide)
+        window.addEventListener('focus', onShow)
+        window.addEventListener('hashchange', render)
+
+        openBtn.addEventListener('click', () => {
+            if (currentJoinLink) attemptOpenKeet(currentJoinLink)
+        })
+
+        render()
+    </script>
+
+</body>
+
+</html>
