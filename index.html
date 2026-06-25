@@ -170,13 +170,32 @@
 
     <script>
         const OPEN_TIMEOUT_MS = 2000
-        const DOWNLOAD_URL = 'https://keet.io/download'
 
         const card = document.getElementById('card')
         const subtitle = document.getElementById('subtitle')
         const roomLink = document.getElementById('roomLink')
         const openBtn = document.getElementById('openBtn')
         const status = document.getElementById('status')
+        const downloadFallback = document.getElementById('downloadFallback')
+
+        function getDownloadUrl () {
+            const ua = navigator.userAgent.toLowerCase()
+
+            const isIOS = /ipad|iphone|ipod/.test(ua)
+            const isMac = /macintosh|mac os x/.test(ua)
+            const isIPadOS = isMac && navigator.maxTouchPoints > 1
+
+            if (isIOS || isIPadOS) {
+                return 'https://apps.apple.com/app/id6443880549&utm_source=join&utm_medium=btn'
+            }
+            if (/android/.test(ua)) {
+                return 'https://play.google.com/store/apps/details?id=io.keet.app&utm_source=join&utm_medium=btn'
+            }
+            return 'https://keet.io/download'
+        }
+
+        const DOWNLOAD_URL = getDownloadUrl()
+        downloadFallback.href = DOWNLOAD_URL
 
         let fallbackTimer = null
         let attempted = false
